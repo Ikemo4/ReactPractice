@@ -9,7 +9,7 @@ function BookList() {
   return (
   <section className='booklist'>
     <Book job='developer' />
-    <Book/>
+    <Book title='random title' price={22}/>
   </section>
   );
 }
@@ -24,6 +24,8 @@ const Book = (props) => {
     {/* <Title/> */}
     {/* <Author/> */}
     {/* <Image/> */}
+    <p>{props.job}</p>
+    <p>{props.title}</p>
   </article>
   )
 };
