@@ -1,17 +1,21 @@
 import ReactDom from 'react-dom';
 
-function Greeting() {
+function BookList() {
   return (
-  <div>
-    <Person/>
-    <Message/>
-  </div>
+  <section>
+    <Book/>
+    <Book/>
+    <Book/>
+    <Book/>
+    <Book/>
+  </section>
   );
 }
 
-const Person = () => <h2>John Doe</h2>;
-const Message = () => {
-  return <p>simple message</p>;
+const Book = () => {
+  return <article>
+    this is a nook
+  </article>
 }
 
-ReactDom.render(<Greeting/>,document.getElementById('root'));
+ReactDom.render(<BookList/>,document.getElementById('root'));
