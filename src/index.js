@@ -1,15 +1,24 @@
 import ReactDom from 'react-dom';
 import './index.css'
 
-const title = 'If Animals Could Kiss Goodnight';
-const author = 'Ann Whitford Paul';
-const img = 'https://images-na.ssl-images-amazon.com/images/I/81nzxODnaJL._AC_UL906_SR906,600_.jpg'
+const firstBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/81nzxODnaJL._AC_UL906_SR906,600_.jpg',
+  title: 'If Animals Could Kiss Goodnight',
+  author: 'Ann Whitford Paul'
+}
+
+const secondBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/71eJk7GtUOL._AC_UL906_SR906,600_.jpg',
+  title: 'The Boy, the Mole, the Fox and the Horse',
+  author: 'Charlie Mackesy'
+}
+
 
 function BookList() {
   return (
   <section className='booklist'>
-    <Book job='developer' />
-    <Book title='random title' price={22}/>
+    <Book img={firstBook.img} title={firstBook.title} author={firstBook.author} />
+    <Book img={secondBook.img} title={secondBook.title} author={secondBook.author} />
   </section>
   );
 }
@@ -18,21 +27,11 @@ const Book = (props) => {
   console.log(props);
   return(
   <article className='book'>
-    <img src={img}></img>
-    <h1>{title}</h1>
-    <h4>{author}</h4>
-    {/* <Title/> */}
-    {/* <Author/> */}
-    {/* <Image/> */}
-    <p>{props.job}</p>
-    <p>{props.title}</p>
+    <img src={props.img}></img>
+    <h1>{props.title}</h1>
+    <h4>{props.author}</h4>
   </article>
   )
 };
-// const Image = () => {
-//   return <img src='https://images-na.ssl-images-amazon.com/images/I/81nzxODnaJL._AC_UL906_SR906,600_.jpg'></img>
-// }
-// const Title = () => <h1>If Animals Kissed Good Night</h1>
-// const Author = () => <h4>Ann Whitford Paul</h4>
 
 ReactDom.render(<BookList/>,document.getElementById('root'));
