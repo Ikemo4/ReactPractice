@@ -1,26 +1,7 @@
 import ReactDom from 'react-dom';
 import './index.css'
-
-const books = [
-  {
-    id: 1,
-    img: 'https://images-na.ssl-images-amazon.com/images/I/81nzxODnaJL._AC_UL906_SR906,600_.jpg',
-    title: 'If Animals Could Kiss Goodnight',
-    author: 'Ann Whitford Paul'
-  },
-  {
-    id: 2,
-    img: 'https://images-na.ssl-images-amazon.com/images/I/71eJk7GtUOL._AC_UL906_SR906,600_.jpg',
-    title: 'The Boy, the Mole, the Fox and the Horse',
-    author: 'Charlie Mackesy'
-  },
-  {
-    id: 3,
-    img: 'https://images-na.ssl-images-amazon.com/images/I/81EVdWdmOKL._AC_UL906_SR906,600_.jpg',
-    title: 'Brown Bear, Brown Bear, What Do You See?',
-    author: 'Bill Martin Jr'
-  },
-]
+import { books } from 'books.js'
+import { Book } from './book';
 
 function BookList() {
   return (
@@ -36,33 +17,5 @@ function BookList() {
   </section>
   );
 }
-
-//object destructuring javascript
-const Book = ({img, title, author}) => {
-  //attribute, event handler
-  //onClick, onMouseOver
-  const clickHandler = (event) => {
-    console.log(event);
-    alert('hello world');
-  };
-  const complexExample = (author) => {
-    console.log(author);
-  };
-  return(
-  <article className='book' onMouseOver={() => {
-    console.log(title)
-  }}>
-    <img src={img}></img>
-    <h1 onClick={()=> console.log(title)}>{title}</h1>
-    <h4>{author}</h4>
-    <button type='button' onClick={clickHandler}>
-      reference example
-    </button>
-    <button type='button' onClick={() => complexExample(author)}> {/* can't just do complexExample(author) because that calls the function immediately */}
-      more complex example
-    </button>
-  </article>
-  )
-};
 
 ReactDom.render(<BookList/>,document.getElementById('root'));
